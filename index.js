@@ -1,40 +1,46 @@
 const app = require('express')();
-const request = require('request');
 const cors = require('cors');
-const secrets = require('./secrets');
+const { requestDataFromAPI } = require('./request');
 
 app.use(cors());
 const port = process.env.port || 8080;
 
 const FOOTBALL_API_BASE_URL = 'https://api.football-data.org/v2';
-const options = {
-  headers: { 'X-Auth-Token': secrets.API_KEY }
-};
 
 app.get('/competitions', (req, res) => {
-  request(
-    `${FOOTBALL_API_BASE_URL}/competitions?plan=TIER_ONE`,
-    options,
-    (error, response) => {
-      if (error) {
-        console.error(error);
-      }
-      res.send(response.body);
-    }
-  );
+  requestDataFromAPI(`${FOOTBALL_API_BASE_URL}/competitions?plan=TIER_ONE`, data => {
+    res.send(data);
+  });
 });
 
 app.get('/competitions/:id', (req, res) => {
-  request(
-    `${FOOTBALL_API_BASE_URL}/competitions/${req.params.id}/teams`,
-    options,
-    (error, response) => {
-      if (error) {
-        res.status(400).send({ message: 'Invalid competition id' });
-      }
-      res.send(response.body);
-    }
-  );
+  requestDataFromAPI(`${FOOTBALL_API_BASE_URL}/competitions/${req.params.id}/teams`, data => {
+    res.send(data);
+  });
+});
+
+app.get('/competitions/:id/standings', (req, res) => {
+  requestDataFromAPI(`${FOOTBALL_API_BASE_URL}/competitions/${req.params.id}/standings`, data => {
+    res.send(data);
+  });
+});
+
+app.get('/competitions/:id/scorers', (req, res) => {
+  requestDataFromAPI(`${FOOTBALL_API_BASE_URL}/competitions/${req.params.id}/scorers`, data => {
+    res.send(data);
+  });
+});
+
+app.get('/teams/:id/', (req, res) => {
+  requestDataFromAPI(`${FOOTBALL_API_BASE_URL}/teams/${req.params.id}`, data => {
+    res.send(data);
+  });
+});
+
+app.get('/teams/:id/matches', (req, res) => {
+  requestDataFromAPI(`${FOOTBALL_API_BASE_URL}/teams/${req.params.id}/matches`, data => {
+    res.send(data);
+  });
 });
 
 app.listen(port, () => {

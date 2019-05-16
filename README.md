@@ -1,1 +1,1 @@
-# soccer-scores-backend
+# football-scores-backend
