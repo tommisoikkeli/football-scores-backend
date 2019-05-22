@@ -2,8 +2,11 @@
   "name": "football-scores-backend",
   "version": "1.0.0",
   "dependencies": {
+    "apollo-datasource-rest": "^0.4.0",
+    "apollo-server": "^2.5.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "graphql": "^14.3.0",
     "request": "^2.88.0"
   },
   "scripts": {
