@@ -6,8 +6,7 @@
     "apollo-server": "^2.5.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "graphql": "^14.3.0",
-    "request": "^2.88.0"
+    "graphql": "^14.3.0"
   },
   "scripts": {
     "start": "node index.js"
