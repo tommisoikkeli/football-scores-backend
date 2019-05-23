@@ -1,10 +1,13 @@
-const { ApolloServer } = require('apollo-server');
+const express = require('express');
+const cors = require('cors');
+const { ApolloServer } = require('apollo-server-express');
 const { typeDefs } = require('./src/api/graphql/types');
 const { resolvers } = require('./src/api/graphql/resolvers');
 const FootballAPI = require('./src/api/footballAPI');
 const { API_KEY } = require('./secrets');
 
 const PORT = process.env.PORT || 8080;
+const app = express();
 
 const server = new ApolloServer({
   typeDefs,
@@ -21,6 +24,9 @@ const server = new ApolloServer({
   }
 });
 
-server.listen(PORT).then(({ url }) => {
-  console.log(`Server listening at ${url}`);
+server.applyMiddleware({ app });
+app.use(cors());
+
+app.listen(PORT, () => {
+  console.log(`Server listening at ${PORT}`);
 });
