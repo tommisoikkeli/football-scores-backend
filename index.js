@@ -1,4 +1,4 @@
-const {ApolloServer} = require('apollo-server');
+const { ApolloServer } = require('apollo-server');
 const { typeDefs } = require('./src/api/graphql/types');
 const { resolvers } = require('./src/api/graphql/resolvers');
 const FootballAPI = require('./src/api/footballAPI');
