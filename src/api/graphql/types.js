@@ -10,6 +10,12 @@ const typeDefs = gql`
     id: Int!
     name: String!
     code: String
+    area: Area
+  }
+
+  type Area {
+    id: Int!
+    name: String
   }
 
   type Teams {
