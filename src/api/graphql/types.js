@@ -30,6 +30,7 @@ const typeDefs = gql`
     name: String
     tla: String
     venue: String
+    clubColors: String
     squad: [Player]
   }
 
