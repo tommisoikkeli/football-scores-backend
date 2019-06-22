@@ -104,9 +104,14 @@ const typeDefs = gql`
     matchday: Int
     stage: String
     group: String
-    homeTeam: Team
-    awayTeam: Team
+    homeTeam: MatchTeam
+    awayTeam: MatchTeam
     score: Score
+  }
+
+  type MatchTeam {
+    id: Int
+    name: String
   }
 
   type Score {
