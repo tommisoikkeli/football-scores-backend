@@ -34,6 +34,14 @@ class FootballAPI extends RESTDataSource {
     }
   }
 
+  async getFixturesForCompetition(id, matchday) {
+    try {
+      return this.get(`competitions/${id}/matches?matchday=${matchday}`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   async getTeam(id) {
     try {
       return this.get(`teams/${id}`);

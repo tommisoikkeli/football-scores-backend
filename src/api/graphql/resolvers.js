@@ -17,6 +17,9 @@ const resolvers = {
     },
     matches: async (_, { id }, { dataSources }) => {
       return dataSources.footballAPI.getMatchesForTeam(id);
+    },
+    fixtures: async(_, { id, matchday }, { dataSources }) => {
+      return dataSources.footballAPI.getFixturesForCompetition(id, matchday);
     }
   }
 };

@@ -109,6 +109,17 @@ const typeDefs = gql`
     score: Score
   }
 
+  type Fixtures {
+    count: Int
+    filters: MatchDayFilter
+    competition: Competition
+    matches: [Match]
+  }
+
+  type MatchDayFilter {
+    matchday: String
+  }
+
   type MatchTeam {
     id: Int
     name: String
@@ -131,6 +142,7 @@ const typeDefs = gql`
     team(id: Int): Team
     scorers(id: Int): Scorers
     matches(id: Int): Matches
+    fixtures(id: Int, matchday: Int): Fixtures
   }
 `;
 
