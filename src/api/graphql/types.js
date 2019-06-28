@@ -54,7 +54,7 @@ const typeDefs = gql`
     id: Int!
     startDate: String
     endDate: String
-    currentMatchDay: Int
+    currentMatchday: Int
   }
 
   type CompetitionStandings {
@@ -111,13 +111,8 @@ const typeDefs = gql`
 
   type Fixtures {
     count: Int
-    filters: MatchDayFilter
     competition: Competition
     matches: [Match]
-  }
-
-  type MatchDayFilter {
-    matchday: String
   }
 
   type MatchTeam {
@@ -142,7 +137,7 @@ const typeDefs = gql`
     team(id: Int): Team
     scorers(id: Int): Scorers
     matches(id: Int): Matches
-    fixtures(id: Int, matchday: Int): Fixtures
+    fixtures(id: Int): Fixtures
   }
 `;
 
