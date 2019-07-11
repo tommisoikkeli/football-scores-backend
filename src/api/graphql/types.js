@@ -25,6 +25,7 @@ const typeDefs = gql`
 
   type Team {
     id: Int!
+    area: Area
     crestUrl: String
     founded: Int
     name: String
