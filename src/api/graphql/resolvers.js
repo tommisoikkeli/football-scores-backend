@@ -18,7 +18,13 @@ const resolvers = {
     matches: async (_, { id }, { dataSources }) => {
       return dataSources.footballAPI.getMatchesForTeam(id);
     },
-    fixtures: async(_, { id }, { dataSources }) => {
+    latestMatch: async (_, { id }, { dataSources }) => {
+      return dataSources.footballAPI.getLatestMatchForTeam(id);
+    },
+    nextMatch: async (_, { id }, { dataSources }) => {
+      return dataSources.footballAPI.getNextMatchForTeam(id);
+    },
+    fixtures: async (_, { id }, { dataSources }) => {
       return dataSources.footballAPI.getFixturesForCompetition(id);
     }
   }

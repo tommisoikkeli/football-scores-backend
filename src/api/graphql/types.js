@@ -139,6 +139,8 @@ const typeDefs = gql`
     scorers(id: Int): Scorers
     matches(id: Int): Matches
     fixtures(id: Int): Fixtures
+    latestMatch(id: Int): Matches
+    nextMatch(id: Int): Matches
   }
 `;
 
