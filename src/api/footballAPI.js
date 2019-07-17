@@ -60,7 +60,7 @@ class FootballAPI extends RESTDataSource {
 
   async getLatestMatchForTeam(id) {
     try {
-      return this.get(`teams/${id}/matches?status=FINISHED&limit=1`);
+      return this.get(`teams/${id}/matches?status=FINISHED`);
     } catch (error) {
       console.error(error);
     }
