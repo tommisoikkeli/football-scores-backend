@@ -6,7 +6,7 @@ const { resolvers } = require('./src/api/graphql/resolvers');
 const FootballAPI = require('./src/api/footballAPI');
 const { API_KEY } = process.env.TOKEN || require('./secrets');
 
-console.log('API KEY', process.env);
+console.log('API KEY', API_KEY);
 
 const PORT = process.env.PORT || 8080;
 const app = express();
