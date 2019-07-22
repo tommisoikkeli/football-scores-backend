@@ -20,9 +20,7 @@ const server = new ApolloServer({
     return {
       token: process.env.TOKEN || require('./secrets')
     };
-  },
-  introspection: true,
-  playground: true
+  }
 });
 
 server.applyMiddleware({ app });
