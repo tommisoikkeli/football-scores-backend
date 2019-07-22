@@ -21,7 +21,9 @@ const server = new ApolloServer({
     return {
       token: API_KEY
     };
-  }
+  },
+  introspection: true,
+  playground: true
 });
 
 server.applyMiddleware({ app });
