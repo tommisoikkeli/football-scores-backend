@@ -4,7 +4,6 @@ const { ApolloServer } = require('apollo-server-express');
 const { typeDefs } = require('./src/api/graphql/types');
 const { resolvers } = require('./src/api/graphql/resolvers');
 const FootballAPI = require('./src/api/footballAPI');
-const { API_KEY } = require('./secrets');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -19,7 +18,7 @@ const server = new ApolloServer({
   },
   context: () => {
     return {
-      token: process.env.TOKEN || API_KEY
+      token: process.env.TOKEN || require('./secrets')
     };
   },
   introspection: true,
