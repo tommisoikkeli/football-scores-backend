@@ -1,5 +1,7 @@
 # football-scores-backend
 
+GraphQL wrapper for [football-data.org API](https://www.football-data.org/).
+
 ## Running locally
 
 Running this server locally requires the following steps:
