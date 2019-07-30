@@ -8,6 +8,14 @@ const FootballAPI = require('./src/api/footballAPI');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+function resolveAPIKEY() {
+  if (!process.env.TOKEN) {
+    const { API_KEY } = require('./secrets');
+    return API_KEY;
+  }
+  return process.env.TOKEN;
+}
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -18,7 +26,7 @@ const server = new ApolloServer({
   },
   context: () => {
     return {
-      token: process.env.TOKEN || require('./secrets')
+      token: resolveAPIKEY()
     };
   }
 });
